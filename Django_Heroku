@@ -13,11 +13,17 @@ Minuto 7
   Dice que no es suficiente el que trae django por defecto a 
   nivel de producción
 
+  pipenv install gunicorn
+
 * Tienes que instalar esto en el SISTEMA "No pipenv" sudo apt-get install libpq-dev
 
 
 * Ademas de psycopg2-binary que te permitira trabajar con base de datos
   Heroku no acepta Sqlite , tiene que ser por ejemplo postgresql
+
+* pipenv install django-heroku
+
+* pipenv install python-decouple
 
 Tienes que crear este archivo para que heroku sepa que tipo de app
 estas introduciendo
@@ -44,13 +50,17 @@ from decouple import config
     'whitenoise.middleware.WhiteNoiseMiddleware', #NEW  
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')#CURRENT
+]
 
-django_heroku.settings(locals())
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #NEW
+
+django_heroku.settings(locals()) #NEW
 
 3.
     (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git add . <---------------
-    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git commit -am 'ajax app for heroku'  <----------
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git commit -am 'ecommerce app for heroku'  <----------
     [main ebf38ca] ajax app for heroku
      5 files changed, 79 insertions(+), 2 deletions(-)
      create mode 100644 Procfile
@@ -65,7 +75,9 @@ django_heroku.settings(locals())
     remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
     To https://github.com/rikicop/ajaxProject.git
        6cf5d72..ebf38ca  main -> main
-    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku login
+
+
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku login <-------------
      ›   Warning: heroku update available from 7.47.6 to 7.47.7.
     heroku: Press any key to open up the browser to login or q to exit: 
     Opening browser to https://cli-auth.heroku.com/auth/cli/browser/c5a3c196-aae3-4dcf-91a1bee64770d5f0requestor=SFMyNTY.
@@ -77,11 +89,16 @@ django_heroku.settings(locals())
     Found an SSH public key at /home/ricardo/.ssh/id_rsa.pub
     ? Would you like to upload it to Heroku? Yes
     Uploading /home/ricardo/.ssh/id_rsa.pub SSH key... done
-    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ 
+    
 
-4. Renombrar la App
+4. Crear y Renombrar la App
+    (ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ heroku create 
+     ›   Warning: heroku update available from 7.47.6 to 7.47.7.
+    Creating app... done, ⬢ stark-sea-63696
+    https://stark-sea-63696.herokuapp.com/ | https://git.heroku.com/stark-sea-63696.git
 
-   (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku rename ajax-django-ruperto
+
+   (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku rename ecommerce-django-ruperto
     ›   Warning: heroku update available from 7.47.6 to 7.47.7.
     Renaming radiant-shore-53331 to ajax-django-ruperto... done
     https://ajax-django-ruperto.herokuapp.com/ | https://git.heroku.com/ajax-django-ruperto.git
@@ -93,5 +110,16 @@ django_heroku.settings(locals())
    
     Tuve que correrlo asi(supongo que main es el main branch)
 
-   $ git push heroku main:master
+   $ git push heroku main:master  <------------
 
+
+PROBLEMAS CON LA BASE DE DATOS POR SER SQLITE3
+
+6.
+
+   heroku run python manage.py migrate
+
+   heroku run python manage.py createsuperuser
+
+
+   
