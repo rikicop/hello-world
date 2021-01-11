@@ -1,0 +1,97 @@
+From Codemy.com  ----> https://www.youtube.com/watch?v=UkokhawLKDU
+
+Empieza dandote algunos consejos de como hostearlo profesionalmente en el futuro 
+
+Tuve que hacer esto para tener a heroku en el terminal por defecto
+ 
+    export PATH=$PATH:/snap/bin
+
+1.
+
+Minuto 7
+* Vas a instalar gunicorn, como servidor web , lo recomienda.
+  Dice que no es suficiente el que trae django por defecto a 
+  nivel de producción
+
+* Tienes que instalar esto en el SISTEMA "No pipenv" sudo apt-get install libpq-dev
+
+
+* Ademas de psycopg2-binary que te permitira trabajar con base de datos
+  Heroku no acepta Sqlite , tiene que ser por ejemplo postgresql
+
+Tienes que crear este archivo para que heroku sepa que tipo de app
+estas introduciendo
+
+$ touch Procpfile
+  tienes que colocarle el nombre que esta en el archivo wsgi.py 
+  en este caso test_project  
+  esta en este pedaso de código 'test_project.settings'
+ 
+
+pip freeze > requirements.txt
+
+2.
+
+Hay que hacer cambios en settings.py
+
+import django_heroku
+import dj_database_url
+from decouple import config
+
+'django.contrib.auth.middleware.AuthenticationMiddleware',
+'django.contrib.messages.middleware.MessageMiddleware',
+'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #NEW  
+]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+django_heroku.settings(locals())
+
+3.
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git add . <---------------
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git commit -am 'ajax app for heroku'  <----------
+    [main ebf38ca] ajax app for heroku
+     5 files changed, 79 insertions(+), 2 deletions(-)
+     create mode 100644 Procfile
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git push <-------------------
+    Username for 'https://github.com': rikicop <----------------
+    Password for 'https://rikicop@github.com': <---------------
+    Counting objects: 8, done.
+    Delta compression using up to 2 threads.
+    Compressing objects: 100% (7/7), done.
+    Writing objects: 100% (8/8), 2.41 KiB | 824.00 KiB/s, done.
+    Total 8 (delta 4), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+    To https://github.com/rikicop/ajaxProject.git
+       6cf5d72..ebf38ca  main -> main
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku login
+     ›   Warning: heroku update available from 7.47.6 to 7.47.7.
+    heroku: Press any key to open up the browser to login or q to exit: 
+    Opening browser to https://cli-auth.heroku.com/auth/cli/browser/c5a3c196-aae3-4dcf-91a1bee64770d5f0requestor=SFMyNTY.
+    g2gDbQAAAA0xOTAuMTI0LjI5Ljk4bgYAwoRR7nYBYgABUYA.uRWwSoYc87vLk0IpHYGoDCWAlQft-QjgAGExh9Ji7-I <----------- Logearte en la pág-------
+    Logging in... done
+    Logged in as ricardo9285@gmail.com
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku keys:add <----------------Acepta la misma key para github
+     ›   Warning: heroku update available from 7.47.6 to 7.47.7.
+    Found an SSH public key at /home/ricardo/.ssh/id_rsa.pub
+    ? Would you like to upload it to Heroku? Yes
+    Uploading /home/ricardo/.ssh/id_rsa.pub SSH key... done
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ 
+
+4. Renombrar la App
+
+   (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku rename ajax-django-ruperto
+    ›   Warning: heroku update available from 7.47.6 to 7.47.7.
+    Renaming radiant-shore-53331 to ajax-django-ruperto... done
+    https://ajax-django-ruperto.herokuapp.com/ | https://git.heroku.com/ajax-django-ruperto.git
+    Git remote heroku updated
+     ▸    Don't forget to update git remotes for all other local checkouts of the app.
+    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ 
+
+5. Correr siempre te puede traer un problemita
+   
+    Tuve que correrlo asi(supongo que main es el main branch)
+
+   $ git push heroku main:master
+
