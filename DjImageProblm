@@ -1,0 +1,14 @@
+Tienes que usar aws para imagenes 
+por que es un problema usar:
+
+class Product(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    image =models.ImageField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
+
+ @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'): <---
+            return self.image.url

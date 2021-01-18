@@ -1,0 +1,90 @@
+1. Esta es la forma en que pude entrar a posgresql en ubuntu
+
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ sudo -u postgres psql  (te va a pedir el pass de root)
+
+psql (10.15 (Ubuntu 10.15-0ubuntu0.18.04.1))
+Type "help" for help.
+
+postgres=# 
+
+
+2. Borré este usuario que habia creado con createsuperuser
+   
+    postgres=# DROP USER IF EXISTS ricardo; 
+    DROP ROLE
+    postgres=# 
+
+3. Chequear las bases de datos que había creado
+
+   \l
+
+4. Borrar Base de Datos 
+
+   drop database laudable_db;
+
+
+5. Como crear Base de Datos
+   
+   postgres=# CREATEDB laudable_db; <---- Este Solo sirve desde Bash
+   ERROR:  syntax error at or near "CREATEDB"
+   LINE 1: CREATEDB laudable_db;
+        ^
+   postgres=# create database laudable_db; <---- Sirve desde psql console
+   CREATE DATABASE
+
+6. Como conectarse a la base de datos 
+    
+    postgres=# \c  laudable_db; <---------
+    laudable_db=#
+
+7. Creau Usuario y Password
+
+   laudable_db=# CREATE USER laudable_user WITH PASSWORD 'laudable_password'; <----
+   CREATE ROLE
+
+8. Conectarse directamente a la BD desde consola 
+   
+   (ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ sudo -u postgres psql laudable_db
+   psql (10.15 (Ubuntu 10.15-0ubuntu0.18.04.1))
+   Type "help" for help.
+
+   laudable_db=# \l
+
+
+**** Convert SQLite to PostgreSQL ****
+
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --natural-foreign --exclude auth.permission --exclude contenttypes --indent 4 > db.json
+
+  **Como pasar los datos a json**
+
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --indent 4 > db.json
+
+To the PostgreSQL DATABASES object:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'laudable_db',
+        'USER': 'laudable_user',
+        'PASSWORD': 'laudable_password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py migrate
+
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, store
+Running migrations:
+  No migrations to apply.
+
+***** Cargar Datos a la Base de Datos de json a la base de datos *******
+
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py loaddata db.json
+Installed 55 object(s) from 1 fixture(s)
+
+*** PGADMIN ***
+
+1. Tienes que colocar el puerto 5432 en settings, llenar los demas campos menos Service
+
