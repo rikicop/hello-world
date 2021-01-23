@@ -28,7 +28,7 @@ Minuto 7
 Tienes que crear este archivo para que heroku sepa que tipo de app
 estas introduciendo
 
-$ touch Procpfile
+$ touch Procfile <---- Escribe bien el nombre por favor
   tienes que colocarle el nombre que esta en el archivo wsgi.py 
   en este caso test_project  
   esta en este pedaso de código 'test_project.settings'

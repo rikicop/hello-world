@@ -12,7 +12,7 @@ youtube https://www.youtube.com/watch?v=DjIFK51Mo74 codemy.com
 
    (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git config --global alias.co checkout
 
-   (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git init   <------ Create the git file
+   (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ git init   <------
 
 3. git add .   ---> Para pasar todo a git
 
@@ -83,6 +83,8 @@ youtube https://www.youtube.com/watch?v=DjIFK51Mo74 codemy.com
 9. Como guardar cambios 
    
    E.g:
+
+   git add . <--  ???
    
    git commit -am "Cambié el título del Login" 
    

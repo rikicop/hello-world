@@ -25,10 +25,6 @@ postgres=#
 
 5. Como crear Base de Datos
    
-   postgres=# CREATEDB laudable_db; <---- Este Solo sirve desde Bash
-   ERROR:  syntax error at or near "CREATEDB"
-   LINE 1: CREATEDB laudable_db;
-        ^
    postgres=# create database laudable_db; <---- Sirve desde psql console
    CREATE DATABASE
 
@@ -57,7 +53,7 @@ postgres=#
 
   **Como pasar los datos a json**
 
-(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --indent 4 > db.json   <----
+(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --indent 4 > db.json
 
 To the PostgreSQL DATABASES object:
 
@@ -66,9 +62,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'laudable_db',
         'USER': 'laudable_user',
-        'PASSWORD': '123456',
+        'PASSWORD': 'laudable_password',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
