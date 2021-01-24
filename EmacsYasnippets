@@ -10,7 +10,7 @@ De la siguiente manera:
 
 Para poder llamarlos tienes que activar yasnippets así:
 
-yas-minor-mode ó yas-global-mode
+yas-global-mode(Preferiblemente)  ó yas-minor-mode 
 
 Si lo guardas exitosamente te debe arrojar un mensaje parecido a este:
 snipet "rfc" loaded for web-mode ó snipet "rfc" loaded for web-mode  
