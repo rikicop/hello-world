@@ -1,0 +1,23 @@
+
+Generalmente los snippets se guardan por defecto en:
+
+/.emacs.d/snippets/web-mode
+
+De la siguiente manera:
+
++new-snippet+ 
++second-snippet+
+
+Para poder llamarlos tienes que activar yasnippets así:
+
+yas-minor-mode ó yas-global-mode
+
+Si lo guardas exitosamente te debe arrojar un mensaje parecido a este:
+snipet "rfc" loaded for web-mode ó snipet "rfc" loaded for web-mode  
+
+para llamar un snippet en particular:
+
+yas-insert-snippet
+ 
+
+
