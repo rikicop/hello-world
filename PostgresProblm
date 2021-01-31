@@ -53,7 +53,7 @@ postgres=#
 
   **Como pasar los datos a json**
 
-(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --indent 4 > db.json
+1.(ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py dumpdata --indent 4 > db.json
 
 To the PostgreSQL DATABASES object:
 
@@ -64,9 +64,11 @@ DATABASES = {
         'USER': 'laudable_user',
         'PASSWORD': 'laudable_password',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
+
+2. pipenv install psycopg2-binary
 
 (ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ python manage.py migrate
 

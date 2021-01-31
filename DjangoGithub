@@ -28,7 +28,7 @@ youtube https://www.youtube.com/watch?v=DjIFK51Mo74 codemy.com
    
    git commit -am "Otro Commit"
 
-   git push
+   git push # Esto es para subirlo pero cuando ya creaste el repo en la página web
 
 6.  Creo que esta es la primera vez
     

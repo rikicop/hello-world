@@ -32,7 +32,8 @@ $ touch Procfile <---- Escribe bien el nombre por favor
   tienes que colocarle el nombre que esta en el archivo wsgi.py 
   en este caso test_project  
   esta en este pedaso de código 'test_project.settings'
- 
+   Ej: 
+   web: gunicorn cecieca_project.wsgi
 
 pip freeze > requirements.txt
 
@@ -107,7 +108,9 @@ django_heroku.settings(locals()) #NEW
 
    $ git push heroku main:master   <-- Primera Vez
 
-
+     si todo sale bien te va arrojar dos enlaces como este:
+      https://kresky.herokuapp.com/ (al que puedes conectarte) ||  https://git.heroku.com/kresky.git
+     
 PROBLEMAS CON LA BASE DE DATOS POR SER SQLITE3
 
 6.
