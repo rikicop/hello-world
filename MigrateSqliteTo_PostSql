@@ -25,12 +25,12 @@ postgres=#
 
 5. Como crear Base de Datos
    
-   postgres=# CREATEDB laudable_db; <---- Este Solo sirve desde Bash
-   ERROR:  syntax error at or near "CREATEDB"
-   LINE 1: CREATEDB laudable_db;
-        ^
    postgres=# create database laudable_db; <---- Sirve desde psql console
    CREATE DATABASE
+
+   CREATEDB laudable_db; <---- Este Solo sirve desde Bash
+   ERROR:  syntax error at or near "CREATEDB"
+   LINE 1: CREATEDB laudable_db;
 
 6. Como conectarse a la base de datos 
     
