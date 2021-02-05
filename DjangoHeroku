@@ -6,6 +6,8 @@ Tuve que hacer esto para tener a heroku en el terminal por defecto
  
     export PATH=$PATH:/snap/bin
 
+*** PARTE I ***
+
 1. Que Instalar Primero
 
 Minuto 7
@@ -52,7 +54,7 @@ from decouple import config
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')#CURRENT
+    os.path.join(BASE_DIR, 'static')#CURRENT (No te metas con este a menos que no exista)
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #NEW
@@ -70,7 +72,7 @@ django_heroku.settings(locals()) #NEW
     Password for 'https://rikicop@github.com': <---------------
     Counting objects: 8, done.
     
-
+*** PARTE II Conectarse a Heroku ***(Chequea que no tengas 5 apps en heroku)
 
     (ajaxProject) ricardo@ricardo-mint:~/DjangoProjects/ajaxProject$ heroku login <-------------
      ›   Warning: heroku update available from 7.47.6 to 7.47.7.
