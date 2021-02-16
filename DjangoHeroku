@@ -92,6 +92,9 @@ django_heroku.settings(locals()) #NEW
     
 
 4. Crear y Renombrar la App
+
+    ***Antes Asegurate del límite de Apps en Heroku(5)***
+    
     (ecommerce) ricardo@ricardo-mint:~/DjangoProjects/ecommerce$ heroku create <-- Primera Vez
      ›   Warning: heroku update available from 7.47.6 to 7.47.7.
     Creating app... done, ⬢ stark-sea-63696
