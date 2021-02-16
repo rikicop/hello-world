@@ -123,7 +123,8 @@ django_heroku.settings(locals()) #NEW
      
 PROBLEMAS CON LA BASE DE DATOS POR SER SQLITE3
 
-6.
+6. Heroku No acepta Base de Datos Foraneas Automaticamente tienes que hacer migrate y createsuperuser.
+   (y por supuesto tampoco agrega los registros de esa base de datos automaticamente)
 
    heroku run python manage.py migrate
 

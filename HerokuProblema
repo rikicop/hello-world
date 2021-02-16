@@ -1,3 +1,12 @@
+0.Heroku No acepta Base de Datos Foraneas Automaticamente tienes que hacer migrate y createsuperuser.
+   (y por supuesto tampoco agrega los registros de esa base de datos automaticamente)
+
+   heroku run python manage.py migrate
+
+   heroku run python manage.py createsuperuser
+
+
+
 1. Cuando intente actualizar ecommerce no funcionó:
 
    Me arrojaba un error de que no existía la columna nueva de stock
@@ -20,5 +29,13 @@
 
 5. Ahora a través del admin de django(Para ver si realmente guarda los cambios)
 
-6. Faltaría con db.json
+6. Faltaría con db.json No funcionó
+
+
+7. Y copiar una tabla a otra con postgresql:
+
+   INSERT INTO contacts(first_name, last_name, email) 
+
+   VALUES('John','Doe','john.doe@postgresqltutorial.com'),
+         ('David','William','david.william@postgresqltutorial.com');
 
