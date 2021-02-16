@@ -109,6 +109,11 @@ django_heroku.settings(locals()) #NEW
 
 5. Correr siempre te puede traer un problemita
    
+    Por ahora este es uno de los problemas mas comunes(Error while running '$ python manage.py collectstatic --noinput')
+     
+    Se resuelve: $ heroku config:set DISABLE_COLLECTSTATIC=1
+
+   
     Tuve que correrlo asi(supongo que main es el main branch)
 
    $ git push heroku main:master   <-- Primera Vez
