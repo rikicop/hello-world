@@ -1,0 +1,34 @@
+[sudo] password for ricardo:        
+psql (10.15 (Ubuntu 10.15-0ubuntu0.18.04.1))
+Type "help" for help.
+1.
+
+postgres=# \l
+postgres=# \c karin_db 
+You are now connected to database "karin_db" as user "postgres".
+
+karin_db=# SELECT * FROM website_post;
+ id |     name      |         desc         |  price  |             img              |                                         details                                          
+----+---------------+----------------------+---------+------------------------------+------------------------------------------------------------------------------------------
+  4 | Villa Tamare  | Casa 30 mts2         | 2000.00 | website/assets/img/casa3.png | http://rentahouse.com.ve/casa_en_venta_en_maturin_en_palma-real-2_rah-21-15344.html
+  5 | Casco Central | Casa 30 mts2         | 5000.00 | website/assets/img/casa4.png | http://rentahouse.com.ve/apartamento_en_venta_en_caracas_en_la-alameda_rah-21-15342.html
+  6 | Los Patios    | Casa 30 mts2         | 6000.00 | website/assets/img/casa5.png | http://rentahouse.com.ve/casa_en_venta_en_maturin_en_palma-real-2_rah-21-15344.html
+  7 | Cabimas       | Apartamento 200 mts2 | 5000.00 | website/assets/img/casa7.png | http://rentahouse.com.ve/casa_en_venta_en_maturin_en_palma-real-2_rah-21-15344.html
+(4 rows)
+
+karin_db=# 
+
+2. Copiar a un CSV(Antes crea el archivo csv vacio y dale todos los permisos, 
+   puedes hacerlo simplemente desde propiedades en Acceso)
+
+karin_db=# \copy (SELECT * FROM website_equipo) to '/home/ricardo/hola.csv' CSV HEADER;
+
+3. Como insertar(Después podrias hacer esto desde Heroku)
+   INSERT INTO table_name (column_list)
+   VALUES
+    (value_list_1),
+    (value_list_2),
+    ...
+    (value_list_n);
+
+
