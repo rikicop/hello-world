@@ -1,0 +1,24 @@
+1. Cuando intente actualizar ecommerce no funcionó:
+
+   Me arrojaba un error de que no existía la columna nueva de stock
+   es decir no se reflejo el cambio que hice al model.py
+
+2. Tuve que (desde heroku y dentro del proyecto por supuesto):
+
+   *** heroku run python manage.py migrate *** 
+   Para aplicar los cambios correctamente
+
+3. Cuando entre a admin si se reflejaron los datos de la columna de productos
+   
+   Image: IMG_20200920_155209188.jpg (ya no me pide imagen si no enlace)
+  
+4. Alternativa psql
+   
+   $ heroku pg:psql
+   => UPDATE store_product SET image='https://i.gr-assets.com/*****/book.jpg' WHERE image = 'book.jpeg';
+   UPDATE 1
+
+5. Ahora a través del admin de django(Para ver si realmente guarda los cambios)
+
+6. Faltaría con db.json
+
