@@ -61,6 +61,17 @@ youtube https://www.youtube.com/watch?v=DjIFK51Mo74 codemy.com
     |  .o+*       .===|
     +----[SHA256]-----+
 
+    ricardo@ricardo-pc:~/.ssh$ ls
+   
+   id_rsa  id_rsa.pub
+   
+   ricardo@ricardo-pc:~/.ssh$ cat id_rsa.pub 
+   ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSoX2dT7jjRbrPvFQkWo+kxQYaDd/sz69hOawsRg+hg9eyVqUGL
+   DUMMdTTmPgLZiVEf6bJbBl9FLP4t3GIew9UdjueNV3HLZLxLnH5O5p3yl8nK/rAeXykN9zXH/uMvmUXjVlsRFEnnyblTxwvDahDwSZJZuV3IPP/
+   oHBazTq40vLrJeW2OLPQJ/umv6fu/Tc/QKkvUZoAdx3aABsEyvj7nps+CRLyty0Wo7QTOCFw9mUdJoV3TJac5JwYKC7eOsrAa/LBh8Cfa65I3Xi01dEo9d/dqCON/
+   zV+7Jc1kxgclod4mY7K7AgvmPH2+WyxevuD4QD0eCXl9umQPef4XC77 
+    
+    --> Copia la key <--
     
     githubpage  ---> picture ---> settings ---> ssh and gps keys ---> new ssh key(no need for title)
         
