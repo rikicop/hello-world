@@ -1,0 +1,44 @@
+1. Problemas con el nombre del proyecto
+   1. Entra en "Web" y busca:
+   
+   WSGI configuration file:
+   /var/www/ricardo5829_pythonanywhere_com_wsgi.py
+
+   # assuming your Django settings file is at '/home/myusername/mysite/mysite/settings.py'
+   
+   path = '/home/ricardo5829/MultiIImages' <--- Fíjate que no colocaste el nombre del proyecto
+                                                y eso es por que cresate el proyecto directo desde la 
+                                                carpeta MultiIImages(django-admin startproject mysite .)
+                                                como pusiste '.' no creaste dos carpetas mysite/mysite 
+
+
+
+
+2.Problemas con el css en django admin
+
+3. Set STATIC_ROOT in settings.py
+
+The STATIC_ROOT variable in settings.py defines the single folder you want to collect all your static files into. Typically, 
+this would be a top-level folder inside your project, eg:
+
+STATIC_ROOT = "/home/myusername/myproject/static"
+# or, eg,
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+4. The important thing is this needs to be the full, absolute path to your static files folder.
+Run python manage.py collectstatic
+
+
+
+
+
+3. Finally, set up a static files mapping to get our web servers to serve out your static files for you.
+
+    1.Go to the Web tab on the PythonAnywhere dashboard
+    2.Go to the Static Files section
+    3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
+    4.Enter the path from STATIC_ROOT into the path section (the full path, including /home/username/respositioname/static)
+
+Then hit Reload and test your static file mapping by going to retrieve a known static file.
+
+Eg, if you have a file at /home/myusername/myproject/static/css/base.css, go visit http://www.your-domain.com/static/css/base.css
