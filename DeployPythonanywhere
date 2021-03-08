@@ -1,3 +1,97 @@
+Step by Step
+
+Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
+
+1. Clonar el repositorio a travez de un Bash console:
+
+   $ git clone https://github.com/rikicop/fotalora.git
+
+   MEJOR -->>> $ git clone https://github.com/rikicop/fotalora.git . (con el . al final(pero no sirvió))
+
+2. *** Este Paso es Opcional ***
+
+   Create a virtualenv and install Django and any other requirements
+   (Pero primero asegurate de crear primero el archivo de requerimiento.txt)
+    
+    2.1 Listar los paquetes que tienes instalado:
+
+    $ pipenv lock -r
+    
+    Ej: 
+    django==2.2
+    pytz==2021.1
+    sqlparse==0.4.1
+    
+    2.2 Eso guardarlo en un archivo requirements.txt
+    
+    $ pipenv install -r ./requirements.txt  
+    
+    # En el caso de pythonanywhere:
+    $ pip install -r requirements.txt
+
+3. The Virtual Eviroment
+   Use 3.7 en este caso:
+
+   $ mkvirtualenv --python=/usr/bin/python3.7 fotalora_project-virtualenv 
+   # mkvirtualenv --python=/usr/bin/python3.8 fotalora_project-virtualenv
+ 
+4. Install django:
+
+   pip install django==2.2
+
+5. En pythonany... Add New App --colocas el nombre de tu dominio www.
+   y en vez de Django escoges: 
+   
+   * Manual Configuration
+   
+   * Escogi python 3.7 por que es el que escogí en el virtual env
+
+   * Escoge el nombre del la virtual env que tienes en consola: fotalora_project-virtualenv
+
+6. Ve a Code: y escoge en 
+   
+   WSGI configuration file: /var/www/www_tecnemas_com_wsgi.py Hacer click
+   entraras en el archivo y borraras todo el contenido, te vas a la documentacion de deploy
+   y vas a copiar esto(o lo que este en la version de la documentación correspondiente):
+    
+        import os
+	import sys
+	
+	# assuming your Django settings file is at '/home/myusername/mysite/mysite/settings.py'
+	path = '/home/fotalora/fotalora' <---- Aquí no me pidio nombre del proyecto
+	if path not in sys.path:
+	    sys.path.insert(0, path)
+	
+	os.environ['DJANGO_SETTINGS_MODULE'] = 'fotalora_project.settings' <------
+	
+	## Uncomment the lines below depending on your Django version
+	###### then, for Django >=1.5:
+	from django.core.wsgi import get_wsgi_application
+	application = get_wsgi_application()
+	###### or, for older Django <=1.4
+	#import django.core.handlers.wsgi
+        #application = django.core.handlers.wsgi.WSGIHandler()
+
+      
+
+7. ./manage.py migrate (Base de Datos)
+
+8. Problemas con el css or archivos estáticos???:
+   
+   Finalmente, set up a static files mapping to get our web servers to serve out your static files for you.
+
+    1.Go to the Web tab on the PythonAnywhere dashboard(Sí WEB TAB)
+    2.Go to the Static Files section
+    3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
+    4.Enter the path from STATIC_ROOT into the path section (the full path, including /home/username/respositorioname/static)
+    Ej: /home/fotalora/fotalora/static
+
+
+
+    A N E X O (Documentación Obsoleta)
+
+Posibles Problemas:
+
 1. Problemas con el nombre del proyecto
    1. Entra en "Web" y busca:
    
@@ -38,6 +132,7 @@ Run python manage.py collectstatic
     2.Go to the Static Files section
     3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
     4.Enter the path from STATIC_ROOT into the path section (the full path, including /home/username/respositioname/static)
+    Ej: /home/fotalora/fotalora/static
 
 Then hit Reload and test your static file mapping by going to retrieve a known static file.
 
