@@ -3,6 +3,8 @@ Step by Step
 Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 
 1. Clonar el repositorio a travez de un Bash console:
+  (Lo que hago """por ahora""" para actualizar es que simplemente 
+   borro el proyecto a través del panel y vuelvo a hacer git clone)
 
    $ git clone https://github.com/rikicop/fotalora.git
 
@@ -102,7 +104,7 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
     pero lo tuve que hacer.
 
 
-    A N E X O (Documentación Obsoleta)
+    A N E X O (Tal vez el primer punto Obsoleto)
 
 Posibles Problemas:
 
@@ -124,7 +126,7 @@ Posibles Problemas:
 
 2.Problemas con el css en django admin
 
-3. Set STATIC_ROOT in settings.py
+Set STATIC_ROOT in settings.py
 
 The STATIC_ROOT variable in settings.py defines the single folder you want to collect all your static files into. Typically, 
 this would be a top-level folder inside your project, eg:
