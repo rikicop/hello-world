@@ -87,6 +87,20 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
     Ej: /home/fotalora/fotalora/static
 
 
+9. Nombre Dominio
+   
+   a. En este caso ve a --> https://www.namecheap.com/
+   b. Ve a Domain List a la Izquierda  y busca Advance Dns
+   c. Ve a la tabla de hosts records y edita la columna value 
+      un campo con el valor como este:  webapp-1060220.pythonanywhere.com
+
+10. Https Certificado ---> pythonaywhere ofrece una manera gratuita 
+
+    
+    HTTPS certificate: Auto-renewing Let's Encrypt certificate  <--- Escoges esta
+    Pero tuve que habilitar --> Force HTTPS: para que funcionara, no se si fue casualidad
+    pero lo tuve que hacer.
+
 
     A N E X O (Documentación Obsoleta)
 
@@ -120,7 +134,7 @@ STATIC_ROOT = "/home/myusername/myproject/static"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 4. The important thing is this needs to be the full, absolute path to your static files folder.
-Run python manage.py collectstatic
+Run python manage.py collectstatic <-----
 
 
 
