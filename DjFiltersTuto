@@ -1,0 +1,118 @@
+1. pipenv install django-filter
+
+2. INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'accounts',
+    'django_filters', <--- Fíjate que lo agrega con '_' y filters con 's'
+]
+ 
+3. Crear filters.py en la app de django
+
+    import django_filters
+    from .models import *
+
+    #Esta es la clase que va a construir los filtros por nosotros
+    #OrderFilter va a heredar de --> django_filters.FilterSet
+    class OrderFilter(django_filters.FilterSet):
+        class Meta:
+            model=Order
+            fields = '__all__'
+
+4. Views(En el caso de este tutorial voy a usar el filtro en customer)
+   
+    from .filters import OrderFilter 
+     
+    def customer(request, pk_test):
+        customer = Customer.objects.get(id=pk_test)
+        #query customer childs
+        orders= customer.order_set.all()
+        order_count = orders.count()
+
+        myFilter = OrderFilter() <<----
+
+        context = {'customer':customer, 'orders':orders, 'order_count':order_count,'myFilter':myFilter} <---
+        return render(request, 'accounts/customer.html', context)
+
+5. customer.html
+
+   <form method="get">
+			{{myFilter.form}} <---- Al parecer esto es por convención no por form.py Investiga
+		    <button class="btn btn-primary" type="submit">Search</button>
+   </form>    
+
+6. pip3 install django-filter <<-- Tuve que instalar fuera del virtual enviroment(si no te da error)
+
+7. python  manage.py runserver
+
+8. Si vas a /costumer/4 , podras notar que los campos de filtro son los 
+   mismo que Order
+
+   class Order(models.Model):
+   
+        STATUS =(
+           ('Pending','Pending'),
+           ('Out for Delivery','Out for Delivery'),
+           ('Delivered','Delivered'),
+           )
+        customer = models.ForeignKey(Customer, null=True, on_delete = models.SET_NULL)
+        product = models.ForeignKey(Product, null=True, on_delete = models.SET_NULL)
+        date_created = models.DateTimeField(auto_now_add=True, null=True)
+        status = models.CharField(max_length=200,null= True, choices=STATUS)
+        
+    def __str__(self):
+        return self.product.name
+
+9. En views.py 'def customer' Que va a pasar?
+
+    a. Primero va a ser query(consulta) a todas las ordenes:
+       orders= customer.order_set.all()
+
+    b. Los va a pasar por este filtro:
+       
+       myFilter = OrderFilter(request.GET,queryset=orders)
+       
+       el filtro arrojará dependiendo de la data que procese request.get 
+
+    c. Se va a reconstruir la variable orders con la data que el filtro nos produsca
+
+       orders = myFilter.qs
+
+10. Excluir algunos atributos del modelo:
+
+    import django_filters
+    from django_filters import DateFilter <--- Atributo de Fecha
+    from .models import *
+
+    class OrderFilter(django_filters.FilterSet):
+        start_date = DateFilter( field_name = "date_created", lookup_expr='gte')<-- Agrego un Atributo Personalizado
+        end_date = DateFilter( field_name = "date_created", lookup_expr='lte') 
+      
+        start_price = DateFilter( field_name = "price", lookup_expr='gte') <----- Podrias hacer lo mismo con precio??
+
+        class Meta:
+        
+            model=Order
+            fields = '__all__'
+            exclude = ['customer','date_created'] <-- Excluidos
+           
+       
+ 11. Se creó un nuevo atributo llamado note(Esto creo que lo hizo momentaneamente para probar icontains search)
+
+ 12. Tuvo que buscar dentro de las ordenes a traves del admin y colocarle a una hello y la otra hello world
+
+
+ 13. LO GRANDIOSO DE ESTO es que funciona como un autocomplete de javascript 
+ 
+    class OrderFilter(django_filters.FilterSet):
+        start_date = DateFilter( field_name = "date_created", lookup_expr='gte')
+        end_date = DateFilter( field_name = "date_created", lookup_expr='lte')
+        note = CharFilter(field_name='note', lookup_expr='icontains') <-----NEW (icontains también significa que va a ignorar la sensibilidad a mayúsc. )
+      
+        class Meta:
+            model=Order
+
