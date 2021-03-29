@@ -60,7 +60,7 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 	import sys
 	
 	# assuming your Django settings file is at '/home/myusername/mysite/mysite/settings.py'
-	path = '/home/fotalora/fotalora' <---- Aquí no me pidio nombre del proyecto
+	path = '/home/fotalora/fotalora' <---- Aquí no me pidio nombre del proyecto, sino de la carpeta que lo contiene
 	if path not in sys.path:
 	    sys.path.insert(0, path)
 	
