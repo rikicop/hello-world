@@ -33,6 +33,13 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 
 3. The Virtual Eviroment
    Use 3.7 en este caso:
+   
+   Nota: 
+   Si el sistema es ***gratuito*** esta corriendo con la siguiente configuración: 
+  ***Python 3.6.0****
+   
+   Django==2.1.15                                                                                                                                                                
+   django-filter==2.2.0 
 
    $ mkvirtualenv --python=/usr/bin/python3.7 fotalora_project-virtualenv 
    # mkvirtualenv --python=/usr/bin/python3.8 fotalora_project-virtualenv
@@ -85,7 +92,7 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
     1.Go to the Web tab on the PythonAnywhere dashboard(Sí WEB TAB)
     2.Go to the Static Files section
     3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
-    4.Enter the path from STATIC_ROOT 
+    4.Enter the path from STATIC_ROOT **No es necesario mantenerlo en settings.py**
       into the path section 
       (the full path, including /home/username/respositorioname/static) **No es necesario mantenerlo en settings.py**
     Ej: /home/fotalora/fotalora/static
