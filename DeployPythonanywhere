@@ -54,12 +54,16 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
    * Manual Configuration
    
    * Escogi python 3.7 por que es el que escogí en el virtual env
+   
+5.1 Configuración en la sección Web:
+
+   Ve a la sección de Virtualenv: <----
 
    * Escoge el nombre del la virtual env que tienes en consola: fotalora_project-virtualenv
 
-6. Ve a Code: y escoge en 
+5.2 Ve a la sección Code: 
    
-   WSGI configuration file: /var/www/www_tecnemas_com_wsgi.py Hacer click
+   WSGI configuration file: /var/www/www_tecnemas_com_wsgi.py <---- **Hacer click**
    entraras en el archivo y borraras todo el contenido, te vas a la documentacion de deploy
    y vas a copiar esto(o lo que este en la version de la documentación correspondiente):
     
@@ -81,21 +85,31 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 	#import django.core.handlers.wsgi
         #application = django.core.handlers.wsgi.WSGIHandler()
 
-      
+        *** Salvas y reinicias la App ***
 
-7. ./manage.py migrate (Base de Datos)
+7.  Configurar la Base de Datos:
+    
+    7.1 ./manage.py migrate <--- En Bash Console
+    7.2 Reload la app en la sección Web
+    7.3 ALLOWED_HOSTS = ['*']
+
 
 8. Problemas con el css admin or archivos estáticos???:
    
    Finalmente, set up a static files mapping to get our web servers to serve out your static files for you.
 
-    1.Go to the Web tab on the PythonAnywhere dashboard(Sí WEB TAB)
-    2.Go to the Static Files section
-    3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
-    4.Enter the path from STATIC_ROOT **No es necesario mantenerlo en settings.py**
+    8.1  Ve a la sección Web
+    8.2. Ve a la Sección de Static Files
+    8.3. Introduce el mismo URL como STATIC_URL e la sección de url (típicamente, /static/)
+    8.4. Enter the path from STATIC_ROOT **No es necesario mantenerlo en settings.py**
       into the path section 
       (the full path, including /home/username/respositorioname/static) **No es necesario mantenerlo en settings.py**
-    Ej: /home/fotalora/fotalora/static
+    Ej: /home/fotalora/fotalora(carpeta contenedora)/static
+    
+	    URL 	Directory 	                       Delete
+	/static/ 	/home/ricardo5829/filtpag2/static 	 
+	Enter URL 	Enter path 	
+
 
 
 9. Nombre Dominio
