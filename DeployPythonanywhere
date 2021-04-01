@@ -78,14 +78,16 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 
 7. ./manage.py migrate (Base de Datos)
 
-8. Problemas con el css or archivos estáticos???:
+8. Problemas con el css admin or archivos estáticos???:
    
    Finalmente, set up a static files mapping to get our web servers to serve out your static files for you.
 
     1.Go to the Web tab on the PythonAnywhere dashboard(Sí WEB TAB)
     2.Go to the Static Files section
     3.Enter the same URL as STATIC_URL in the url section (typically, /static/)
-    4.Enter the path from STATIC_ROOT into the path section (the full path, including /home/username/respositorioname/static)
+    4.Enter the path from STATIC_ROOT 
+      into the path section 
+      (the full path, including /home/username/respositorioname/static) **No es necesario mantenerlo en settings.py**
     Ej: /home/fotalora/fotalora/static
 
 
