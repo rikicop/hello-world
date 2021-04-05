@@ -88,7 +88,7 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
         *** Salvas y reinicias la App ***
 
 7.  Configurar la Base de Datos:
-    
+    7.0 ./manage.py makemigrations <--- Si ya tenias una base de datos poblada
     7.1 ./manage.py migrate <--- En Bash Console
     7.2 Reload la app en la sección Web
     7.3 ALLOWED_HOSTS = ['*']
