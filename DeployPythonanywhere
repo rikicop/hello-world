@@ -109,7 +109,13 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 	    URL 	Directory 	                       Delete
 	/static/ 	/home/ricardo5829/filtpag2/static 	 
 	Enter URL 	Enter path 	
-
+8.5 Como aplicar los cambios a el estilo css de admin
+    En virtual machine:
+    
+    ./manage.py collectstatic
+    
+    el css debe estar en static/css o en la ruta que quieras(que indiques en el base_extra.html(por ejemplo)) 
+    pero que sea dentro del static
 
 
 9. Nombre Dominio
