@@ -1,0 +1,5 @@
+Generalmente lo hago desde pythonanywhere.com
+
+git fetch
+git reset --hard HEAD
+git merge '@{u}'
