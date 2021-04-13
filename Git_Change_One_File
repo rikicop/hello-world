@@ -1,0 +1,7 @@
+22:21 ~/filtpag2 (main)$ git fetch
+22:22 ~/filtpag2 (main)$ git checkout main -- inmuebles/admin.py                                                                                                              
+22:22 ~/filtpag2 (main)$ git add .  
+
+git config --global user.name "Your Name"
+
+22:23 ~/filtpag2 (main)$ git commit -am 'Hello'
