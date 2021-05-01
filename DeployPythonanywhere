@@ -106,8 +106,15 @@ Pág:   https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
       (the full path, including /home/username/respositorioname/static) **No es necesario mantenerlo en settings.py**
     Ej: /home/fotalora/fotalora(carpeta contenedora)/static
     
+    Por razones de compatibilidad computadora-pythonanywhere vas 
+    colocar la dirección del directorio de la siguiente forma 
+    en la carpeta de proyecto( Ej:filtpag_project ):
+    
+     /home/karinpena/filtpag2/filtpag_project/static
+     /home/usuario/carpeta_contenedora/carpeta_proyecto_djando/static
+    
 	    URL 	Directory 	                       Delete
-	/static/ 	/home/ricardo5829/filtpag2/static 	 
+	/static/ 	/home/karinpena/filtpag2/filtpag_project/static	 
 	Enter URL 	Enter path 	
 8.5 Como aplicar los cambios a el estilo css de admin
     En virtual machine:
