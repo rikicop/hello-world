@@ -1,0 +1,4 @@
+Supuestamente es así , yo no le he probado:
+
+git reset --hard HEAD
+git pull
