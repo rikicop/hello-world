@@ -1,0 +1,26 @@
+Esto es Sobre todo para archivos como: Csv, Pdf, Xlsx.
+
+Tienes que Colocar la Dirección Completa Para acceder al archivo.
+
+def tabla(request):
+    #prod = Product.objects.all()
+    df = pd.DataFrame(list(Product.objects.all().values()))
+    df.to_csv(r'/home/persianasboutique/wilmar/media/precios.csv') <------------
+    #context = {'prod':prod}
+
+    json_records = df.reset_index().to_json(orient ='records')
+    data = []
+    data = json.loads(json_records)
+    context = {'d': data}
+    return render(request, 'tabla.html', context)
+    
+def download_file(request):
+
+    fl_path = '/home/persianasboutique/wilmar/media/precios.csv'
+    filename = 'precios.csv'
+
+    fl = open(fl_path, 'rb')
+    mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
