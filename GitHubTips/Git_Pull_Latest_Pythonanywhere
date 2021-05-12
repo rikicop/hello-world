@@ -1,4 +1,9 @@
-Supuestamente es así , yo no le he probado:
+Esto es solo para hacer pull solo de los últimos cambios.
+(si editaste los archivos de pyanywhere antes de hacer pull 
+te puede dar error, y te va a pedir que borres ese archivo que editaste
+en pyanywhere) 
+
+
 
 git reset --hard HEAD
 git pull
