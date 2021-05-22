@@ -1,5 +1,9 @@
 Esto es Sobre todo para archivos como: Csv, Pdf, Xlsx.
 
+**Y tambien en la pestaña de Web de pyanywhere debes colocar: 
+   
+    url:/media/ y path: /home/persianasboutique/wilmar/media/precios.csv
+
 Tienes que Colocar la Dirección Completa Para acceder al archivo.
 
 def tabla(request):
