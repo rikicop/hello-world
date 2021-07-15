@@ -1,0 +1,22 @@
+1. Tuve que borrar el .git del frontend y volverlo a crear
+   aunque confieso que dudo mucho que sea la forma correcta
+   pero me funcionó.
+
+2. Volvi a la carpeta principal(todo) e hice git init, 
+
+    git add .
+
+    git commit -m "one commit"
+
+    git branch -M main
+
+    git remote add origin https://github.com/rikicop/dj-react-todo-1st.git
+
+ 3. Como volver a establecer el repositorio
+
+       git remote set-url origin https://github.com/your/repository
+
+
+ 4. git push -u origin main
+
+
