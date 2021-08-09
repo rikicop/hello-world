@@ -1,0 +1,153 @@
+
+15:48 ~ $ git clone https://github.com/rikicop/backend.git
+Cloning into 'backend'...
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 25 (delta 2), reused 25 (delta 2), pack-reused 0
+Unpacking objects: 100% (25/25), done.
+Checking connectivity... done.
+
+15:50 ~ $ mkvirtualenv --python=/usr/bin/python3.6 tecnemas_project-virtualenv                               
+Running virtualenv with interpreter /usr/bin/python3.6
+Already using interpreter /usr/bin/python3.6
+Using base prefix '/usr'
+New python executable in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/python3.6
+Also creating executable in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/python
+Installing setuptools, pip, wheel...
+done.
+virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/predeactivate
+virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/preactivate
+virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/postactivate
+virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/get_env_details
+
+
+(tecnemas_project-virtualenv) 15:54 ~ $ pip install django==2.2
+Looking in links: /usr/share/pip-wheels
+Collecting django==2.2
+  Downloading Django-2.2-py3-none-any.whl (7.4 MB)
+     |████████████████████████████████| 7.4 MB 13.5 MB/s 
+Collecting sqlparse
+  Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+     |████████████████████████████████| 42 kB 158 kB/s 
+Collecting pytz
+  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+     |████████████████████████████████| 510 kB 11.6 MB/s 
+Installing collected packages: sqlparse, pytz, django
+Successfully installed django-2.2 pytz-2021.1 sqlparse-0.4.1
+
+(tecnemas_project-virtualenv) 15:59 ~ $ pip install djangorestframework==3.11.0
+Looking in links: /usr/share/pip-wheels
+Collecting djangorestframework==3.11.0
+  Downloading djangorestframework-3.11.0-py3-none-any.whl (911 kB)
+     |████████████████████████████████| 911 kB 14.3 MB/s 
+Requirement already satisfied: django>=1.11 in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from djangorestframework==3.11.0) (2.2)
+Requirement already satisfied: sqlparse in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django>=1.11->djangorestframework==3.11.0) (0.4.1)
+Requirement already satisfied: pytz in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django>=1.11->djangorestframework==3.11.0) (2021.1)
+Installing collected packages: djangorestframework
+Successfully installed djangorestframework-3.11.0
+
+
+(tecnemas_project-virtualenv) 16:00 ~ $ python --version
+Python 3.6.9
+(tecnemas_project-virtualenv) 16:21 ~ $ ls
+README.txt  calculadora                 calculadora_15_sept_20.tar.gz
+backend     calculadora_10_1_21.tar.gz  calculadora_29_8_20.tar.gz
+
+Web ** Code Section ** /var/www/ruperto1_pythonanywhere_com_wsgi.py
+
+https://github.com/rikicop/backend.git
+
+# +++++++++++ DJANGO +++++++++++
+# To use your own django app use code like this:
+
+import os
+import sys
+#
+## assuming your django settings file is at '/home/ruperto1/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/ruperto1/mysite/manage.py'
+path = '/home/ruperto1/backend/'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tecnemas_project.settings'
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+
+
+
+(tecnemas_project-virtualenv) 16:41 ~ $ cd backend/
+(tecnemas_project-virtualenv) 16:41 ~/backend (main)$ ls
+Pipfile  Pipfile.lock  db.sqlite3  manage.py  tecnemas_project  todos
+
+
+(tecnemas_project-virtualenv) 16:45 ~/backend (main)$ pip install django-cors-headers==3.2.1
+Looking in links: /usr/share/pip-wheels
+Collecting django-cors-headers==3.2.1
+  Downloading django_cors_headers-3.2.1-py3-none-any.whl (14 kB)
+Requirement already satisfied: Django>=1.11 in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django-cors-headers==3.2.1) (2.2)
+Requirement already satisfied: pytz in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from Django>=1.11->django-cors-headers==3.2.1) (2021.1)
+Requirement already satisfied: sqlparse in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from Django>=1.11->django-cors-headers==3.2.1) (0.4.1)
+Installing collected packages: django-cors-headers
+Successfully installed django-cors-headers-3.2.1
+
+
+(tecnemas_project-virtualenv) 16:46 ~/backend (main)$ pip install django-summernote
+Looking in links: /usr/share/pip-wheels
+Collecting django-summernote
+  Downloading django-summernote-0.8.11.6.tar.gz (269 kB)
+     |████████████████████████████████| 269 kB 10.2 MB/s 
+
+Successfully built django-summernote
+Installing collected packages: django-summernote
+Successfully installed django-summernote-0.8.11.6
+(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py makemigrations                             
+No changes detected
+(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, django_summernote, sessions, todos
+Running migrations:
+  No migrations to apply.
+(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ 
+
+
+8. Problemas con el css admin or archivos estáticos???:
+   
+   Finalmente, set up a static files mapping to get our web servers to serve out your static files for you.
+
+    8.1  Ve a la sección Web
+    8.2. Ve a la Sección de Static Files
+    8.3. Introduce el mismo URL como STATIC_URL e la sección de url (típicamente, /static/)
+    8.4. Enter the path from STATIC_ROOT **No es necesario mantenerlo en settings.py**
+      into the path section 
+      (the full path, including /home/username/respositorioname/static) **No es necesario mantenerlo en settings.py**
+                                                                          **Aunque si lo Hice**
+    Ej: /home/fotalora/fotalora(carpeta contenedora)/static <<---
+    
+    Por razones de compatibilidad computadora-pythonanywhere vas 
+    colocar la dirección del directorio de la siguiente forma 
+    en la carpeta de proyecto( Ej:filtpag_project ):
+    
+     /home/karinpena/filtpag2/filtpag_project/static
+     /home/usuario/carpeta_contenedora/carpeta_proyecto_djando/static
+    
+	    URL 	Directory 	                       Delete
+	/static/ 	/home/karinpena/filtpag2/filtpag_project/static	 <-- 8.3 y 8.4
+	Enter URL 	Enter path 
+	
+ADMIN CSS	
+8.5 Como aplicar los cambios a el estilo css de admin
+    En virtual machine:
+    
+    settings.py
+    
+    STATIC_ROOT = '/home/persianasboutique/wilmar/wilmar_project/static'
+    
+    4. The important thing is this needs to be the full, absolute path to your static files folder.
+       Run python manage.py collectstatic <-----
+
+
+(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py collectstatic
