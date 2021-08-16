@@ -46,6 +46,7 @@ path = '/home/ruperto1/backend/'
 if path not in sys.path:
     sys.path.append(path)
 
+## tecnemas_project es el nombre de proyecto django
 os.environ['DJANGO_SETTINGS_MODULE'] = 'tecnemas_project.settings'
 
 from django.core.wsgi import get_wsgi_application
