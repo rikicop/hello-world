@@ -117,3 +117,27 @@ ADMIN CSS
     10.(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py collectstatic
 
  11. Restart pythonanywhere App
+ 
+12. Como empezar MySql
+  
+  Manual:
+
+  https://help.pythonanywhere.com/pages/UsingMySQL/
+  pass: 2021Tecnemas
+
+  db_name:fotaloradb
+
+  MySQL settings
+	Connecting:
+	Use these settings in your web applications.
+	
+	Database host address:fotalora.mysql.pythonanywhere-services.com
+	Username:fotalora
+	Your databases:
+	Click a database's name to start a MySQL console logged in to it.
+	
+	Start a console on:fotalora$default <-- Este es el nombre completo de la base de datos
+
+
+01:14 ~ $ mysql -u fotalora -h fotalora.mysql.pythonanywhere-services.com -p 'fotalora$fotaloradb'                                                                           
+Enter password: 2021Tecnemas
