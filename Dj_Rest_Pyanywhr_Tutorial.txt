@@ -142,7 +142,7 @@ ADMIN CSS
 01:14 ~ $ mysql -u fotalora -h fotalora.mysql.pythonanywhere-services.com -p 'fotalora$fotaloradb'                                                                           
 Enter password: 2021Tecnemas
 
-14. En caso de ""Strict Mode is not set for database connection 'default'""
+13. En caso de ""Strict Mode is not set for database connection 'default'""
 
 DATABASES = {
     'default': {
