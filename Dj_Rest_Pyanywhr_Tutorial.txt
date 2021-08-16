@@ -41,6 +41,7 @@ import sys
 #
 ## assuming your django settings file is at '/home/ruperto1/mysite/mysite/settings.py'
 ## and your manage.py is is at '/home/ruperto1/mysite/manage.py'
+## ruperto1 en este caso es el usuario y backend es la carpeta donde esta el manage.py
 path = '/home/ruperto1/backend/'
 if path not in sys.path:
     sys.path.append(path)
