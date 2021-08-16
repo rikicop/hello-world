@@ -2,24 +2,12 @@
 15:48 ~ $ git clone https://github.com/rikicop/backend.git
 Cloning into 'backend'...
 remote: Enumerating objects: 25, done.
-remote: Counting objects: 100% (25/25), done.
-remote: Compressing objects: 100% (22/22), done.
-remote: Total 25 (delta 2), reused 25 (delta 2), pack-reused 0
-Unpacking objects: 100% (25/25), done.
-Checking connectivity... done.
+remote: Counting objects: 100% (25/25), done...
 
 15:50 ~ $ mkvirtualenv --python=/usr/bin/python3.6 tecnemas_project-virtualenv                               
 Running virtualenv with interpreter /usr/bin/python3.6
-Already using interpreter /usr/bin/python3.6
-Using base prefix '/usr'
-New python executable in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/python3.6
-Also creating executable in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/python
-Installing setuptools, pip, wheel...
-done.
-virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/predeactivate
-virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/postdeactivate
-virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/preactivate
-virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/postactivate
+Already using interpreter /usr/bin/python3.6...
+...
 virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/bin/get_env_details
 
 
@@ -27,32 +15,18 @@ virtualenvwrapper.user_scripts creating /home/ruperto1/.virtualenvs/tecnemas_pro
 Looking in links: /usr/share/pip-wheels
 Collecting django==2.2
   Downloading Django-2.2-py3-none-any.whl (7.4 MB)
-     |████████████████████████████████| 7.4 MB 13.5 MB/s 
-Collecting sqlparse
-  Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
-     |████████████████████████████████| 42 kB 158 kB/s 
-Collecting pytz
-  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
-     |████████████████████████████████| 510 kB 11.6 MB/s 
-Installing collected packages: sqlparse, pytz, django
-Successfully installed django-2.2 pytz-2021.1 sqlparse-0.4.1
+     |████████████████████████████████| 7.4 MB 13.5 MB/s... 
 
 (tecnemas_project-virtualenv) 15:59 ~ $ pip install djangorestframework==3.11.0
 Looking in links: /usr/share/pip-wheels
 Collecting djangorestframework==3.11.0
   Downloading djangorestframework-3.11.0-py3-none-any.whl (911 kB)
      |████████████████████████████████| 911 kB 14.3 MB/s 
-Requirement already satisfied: django>=1.11 in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from djangorestframework==3.11.0) (2.2)
-Requirement already satisfied: sqlparse in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django>=1.11->djangorestframework==3.11.0) (0.4.1)
-Requirement already satisfied: pytz in ./.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django>=1.11->djangorestframework==3.11.0) (2021.1)
-Installing collected packages: djangorestframework
 Successfully installed djangorestframework-3.11.0
-
 
 (tecnemas_project-virtualenv) 16:00 ~ $ python --version
 Python 3.6.9
 (tecnemas_project-virtualenv) 16:21 ~ $ ls
-README.txt  calculadora                 calculadora_15_sept_20.tar.gz
 backend     calculadora_10_1_21.tar.gz  calculadora_29_8_20.tar.gz
 
 Web ** Code Section ** /var/www/ruperto1_pythonanywhere_com_wsgi.py
@@ -76,9 +50,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'tecnemas_project.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
-
-
-
 (tecnemas_project-virtualenv) 16:41 ~ $ cd backend/
 (tecnemas_project-virtualenv) 16:41 ~/backend (main)$ ls
 Pipfile  Pipfile.lock  db.sqlite3  manage.py  tecnemas_project  todos
@@ -88,22 +59,14 @@ Pipfile  Pipfile.lock  db.sqlite3  manage.py  tecnemas_project  todos
 Looking in links: /usr/share/pip-wheels
 Collecting django-cors-headers==3.2.1
   Downloading django_cors_headers-3.2.1-py3-none-any.whl (14 kB)
-Requirement already satisfied: Django>=1.11 in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from django-cors-headers==3.2.1) (2.2)
-Requirement already satisfied: pytz in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from Django>=1.11->django-cors-headers==3.2.1) (2021.1)
-Requirement already satisfied: sqlparse in /home/ruperto1/.virtualenvs/tecnemas_project-virtualenv/lib/python3.6/site-packages (from Django>=1.11->django-cors-headers==3.2.1) (0.4.1)
-Installing collected packages: django-cors-headers
 Successfully installed django-cors-headers-3.2.1
 
 
 (tecnemas_project-virtualenv) 16:46 ~/backend (main)$ pip install django-summernote
-Looking in links: /usr/share/pip-wheels
-Collecting django-summernote
+
   Downloading django-summernote-0.8.11.6.tar.gz (269 kB)
      |████████████████████████████████| 269 kB 10.2 MB/s 
 
-Successfully built django-summernote
-Installing collected packages: django-summernote
-Successfully installed django-summernote-0.8.11.6
 (tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py makemigrations                             
 No changes detected
 (tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py migrate
@@ -146,8 +109,9 @@ ADMIN CSS
     
     STATIC_ROOT = '/home/persianasboutique/wilmar/wilmar_project/static'
     
-    4. The important thing is this needs to be the full, absolute path to your static files folder.
+    9. The important thing is this needs to be the full, absolute path to your static files folder.
        Run python manage.py collectstatic <-----
+       
+    10.(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py collectstatic
 
-
-(tecnemas_project-virtualenv) 16:53 ~/backend (main)$ ./manage.py collectstatic
+ 11. Restart pythonanywhere App
