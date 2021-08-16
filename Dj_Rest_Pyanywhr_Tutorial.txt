@@ -136,28 +136,14 @@ ADMIN CSS
 	Your databases:
 	Click a database's name to start a MySQL console logged in to it.
 	
-	Start a console on:fotalora$default
+	Start a console on:fotalora$default <-- Este es el nombre completo de la base de datos
 
-Ejemplo:
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fotalora$fotaloradb',
-        'USER': 'fotalora',
-        'PASSWORD': '2021Tecnemas',
-        'HOST': 'fotalora.mysql.pythonanywhere-services.com',
-    }
-}
 
 01:14 ~ $ mysql -u fotalora -h fotalora.mysql.pythonanywhere-services.com -p 'fotalora$fotaloradb'                                                                           
 Enter password: 2021Tecnemas
 
-Tienes que hacer createsuperuser otra vez si no te agarra el que tenías
-por que el no guarda registros solo crea la base de datos
+14. En caso de ""Strict Mode is not set for database connection 'default'""
 
-** MySQL Strict Mode is not set for database connection 'default'**
-Parece que option debe ser en plural options
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
