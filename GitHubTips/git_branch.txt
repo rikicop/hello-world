@@ -1,0 +1,35 @@
+Using Command Line to Create New Branch in GitHub
+
+Creating a new branch using the command line is nearly every developer’s favourite method. Because once you get a hang of it, it’s unbelievably easy to use.
+
+First, make sure to cd into your local repository. Once you’re in the right folder, execute.
+
+
+$ git branch <branch-name> 
+
+// This will create a new branch. But before you start making changes to your code, you will have to first switch to the new branch you just created. To do that, run
+
+
+$ git checkout <branch-name>
+
+// Many developers, especially when they’re just getting started, forget switching to the new branch. That’s why you can use this command that will create the new branch and immediately switch you to it.
+
+EJ ---> git checkout mongodb // Cambiado a rama 'mongodb'
+
+
+
+
+$ git checkout -b <branch-name>  <--- Esta No me srivió no se para que es, me da error
+
+// Once you’ve created a new branch and switched to it, you can start making changes in your code. However, all of these changes (including the new branch) is still only in your local machine.
+
+
+
+
+// To publish the new branch you created in GitHub and make it available for everyone in your team, run the following command:
+
+$ git push -u <remote> <branch-name>
+
+EJ: git push -u origin controller
+
+
